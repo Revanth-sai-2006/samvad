@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    --color-maroon-deep: #641B32;
-    --color-maroon-royal: #7A243D;
-    --color-maroon-dark: #42101F;
-    --color-gold-premium: #C5A15A;
-    --color-gold-soft: #E2CFA5;
-    --color-ivory: #FAF8F3;
+    --color-maroon-deep: #500D22;
+    --color-maroon-burgundy: #380A19;
+    --color-maroon-dark: #280612;
+    --color-gold-antique: #C5A052;
+    --color-gold-champagne: #E3CCA0;
+    --color-ivory: #FAF8F5;
     --color-warm-white: #FFFFFF;
-    --color-light-beige: #F2EDE4;
-    --color-charcoal: #292329;
-    --color-muted-grey: #77717A;
+    --color-light-beige: #F5EFE6;
+    --color-charcoal: #1F1A1E;
+    --color-muted-grey: #6B646D;
   }
 
   body {
-    background-color: #FAF8F3;
-    color: #292329;
+    background-color: #FAF8F5;
+    color: #1F1A1E;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -26,28 +26,23 @@
 
 /* Custom Institutional Styling & Heritage Patterns */
 .bg-architectural-pattern {
-  background-color: #42101F;
+  background-color: #280612;
   background-image: 
-    radial-gradient(#C5A15A 0.75px, transparent 0.75px),
-    radial-gradient(#C5A15A 0.75px, #42101F 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-  background-opacity: 0.08;
+    radial-gradient(#C5A052 0.75px, transparent 0.75px),
+    radial-gradient(#C5A052 0.75px, #280612 0.75px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
 }
 
 .bg-maroon-pattern {
   background: 
-    radial-gradient(ellipse at 80% 20%, rgba(122, 36, 61, 0.7) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(66, 16, 31, 0.9) 0%, transparent 60%),
-    linear-gradient(135deg, #42101F 0%, #641B32 50%, #7A243D 100%);
-}
-
-.gold-border-gradient {
-  border-image: linear-gradient(to right, #E2CFA5, #C5A15A, #A68440) 1;
+    radial-gradient(ellipse at 85% 15%, rgba(100, 19, 46, 0.45) 0%, transparent 60%),
+    radial-gradient(ellipse at 15% 85%, rgba(40, 6, 18, 0.85) 0%, transparent 60%),
+    linear-gradient(135deg, #280612 0%, #380A19 45%, #500D22 100%);
 }
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #F5EFE1 0%, #C5A15A 50%, #A68440 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #E3CCA0 40%, #C5A052 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -55,29 +50,29 @@
 /* Institutional Crest Accents */
 .gold-separator {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #C5A15A 20%, #E2CFA5 50%, #C5A15A 80%, transparent);
+  background: linear-gradient(90deg, transparent, #C5A052 20%, #E3CCA0 50%, #C5A052 80%, transparent);
 }
 
 .gold-separator-maroon {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #641B32 20%, #7A243D 50%, #641B32 80%, transparent);
+  background: linear-gradient(90deg, transparent, #500D22 20%, #380A19 50%, #500D22 80%, transparent);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F2EDE4;
+  background: #F5EFE6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C5A15A;
+  background: #C5A052;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #641B32;
+  background: #500D22;
 }

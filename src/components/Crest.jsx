@@ -2,10 +2,10 @@ import React from 'react';
 
 export function KLUUniversityCrest({ className = "w-10 h-10", variant = "gold" }) {
   const isGold = variant === "gold";
-  const primaryStroke = isGold ? "#C5A15A" : "#641B32";
-  const accentFill = isGold ? "#E2CFA5" : "#7A243D";
-  const bgFill = isGold ? "#42101F" : "#FAF8F3";
-  const textFill = isGold ? "#C5A15A" : "#641B32";
+  const primaryStroke = isGold ? "#C5A052" : "#500D22";
+  const accentFill = isGold ? "#E3CCA0" : "#64132E";
+  const bgFill = isGold ? "#280612" : "#FAF8F5";
+  const textFill = isGold ? "#C5A052" : "#500D22";
 
   return (
     <svg 
@@ -28,18 +28,18 @@ export function KLUUniversityCrest({ className = "w-10 h-10", variant = "gold" }
         stroke={primaryStroke} 
         strokeWidth="1.2" 
         strokeDasharray="3 2"
-        opacity="0.8"
+        opacity="0.85"
       />
       {/* Laurel Leaves left & right */}
       <path 
         d="M26 48 C24 38 32 30 38 28 C34 34 35 44 26 48 Z" 
         fill={accentFill} 
-        opacity="0.9"
+        opacity="0.95"
       />
       <path 
         d="M74 48 C76 38 68 30 62 28 C66 34 65 44 74 48 Z" 
         fill={accentFill} 
-        opacity="0.9"
+        opacity="0.95"
       />
       {/* Central Book / Lamp of Knowledge Motif */}
       <path 
@@ -85,13 +85,13 @@ export function CouncilBadge({ className = "w-6 h-6" }) {
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path 
         d="M12 2L3 7V13C3 18.5 6.8 21.7 12 23C17.2 21.7 21 18.5 21 13V7L12 2Z" 
-        fill="#641B32" 
-        stroke="#C5A15A" 
+        fill="#500D22" 
+        stroke="#C5A052" 
         strokeWidth="1.8"
       />
       <path 
         d="M12 6L14 10H18L14.8 12.5L16 16.5L12 14L8 16.5L9.2 12.5L6 10H10L12 6Z" 
-        fill="#C5A15A"
+        fill="#C5A052"
       />
     </svg>
   );

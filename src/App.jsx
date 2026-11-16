@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import InstitutionalDashboard from './components/InstitutionalDashboard';
 import QuickServices from './components/QuickServices';
 import ProcessCatalog from './components/ProcessCatalog';
 import SACSection from './components/SACSection';
@@ -124,7 +125,17 @@ export default function App() {
               onSelectProcess={(proc) => setSelectedProcess(proc)}
             />
 
-            {/* 2. Frequently Accessed Services */}
+            {/* 2. Institutional Dashboard Overview (Executive Desk, Session Status, Updates) */}
+            <InstitutionalDashboard 
+              onOpenGrievance={() => setIsGrievanceOpen(true)}
+              onExploreProcesses={() => {
+                const el = document.getElementById('processes');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else setCurrentView('processes');
+              }}
+            />
+
+            {/* 3. Frequently Accessed Services */}
             <QuickServices onLaunchService={handleLaunchService} />
 
             {/* 3. Explore by Category / Full Process Catalog Preview */}

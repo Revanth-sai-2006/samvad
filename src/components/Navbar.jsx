@@ -49,20 +49,20 @@ export default function Navbar({
   return (
     <header className="sticky top-0 z-40 bg-kl-maroon-dark border-b border-kl-gold/30 shadow-maroon-deep transition-all duration-200">
       {/* Top Institutional Notification Banner */}
-      <div className="bg-kl-maroon-subtle/80 text-kl-gold-soft text-xs border-b border-kl-gold/15 py-1.5 px-4 hidden md:block">
+      <div className="bg-kl-maroon-subtle/90 text-kl-gold-soft text-[11px] border-b border-kl-gold/15 py-1 px-4 hidden lg:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1 font-semibold text-kl-gold">
+          <div className="flex items-center gap-2.5">
+            <span className="flex items-center gap-1 font-bold text-kl-gold">
               <ShieldCheck className="w-3.5 h-3.5 text-kl-gold" />
               Official Portal
             </span>
             <span className="text-kl-gold/40">•</span>
             <span>Koneru Lakshmaiah Education Foundation (KL Deemed to be University)</span>
             <span className="text-kl-gold/40">•</span>
-            <span className="text-kl-gold-soft/80">NAAC A++ Graded (3.57 CGPA) • Category-I Autonomy</span>
+            <span className="text-kl-gold-soft/80">NAAC A++ (3.57 CGPA) • Category-I Autonomy</span>
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-4">
             <button 
               onClick={onOpenGrievance} 
               className="hover:text-kl-gold transition-colors flex items-center gap-1 font-medium underline underline-offset-2"
@@ -71,9 +71,9 @@ export default function Navbar({
               File SAMVAD Grievance
             </button>
             <span className="text-kl-gold/40">•</span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <span className="text-kl-gold/80">Role:</span>
-              <span className="bg-kl-maroon-royal text-kl-gold px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider border border-kl-gold/30">
+              <span className="bg-kl-maroon-royal text-kl-gold px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border border-kl-gold/30">
                 {userRole === 'student' ? 'Student' : 'Council Admin'}
               </span>
             </div>
@@ -158,21 +158,14 @@ export default function Navbar({
             </button>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center gap-2">
             <button
-              onClick={() => handleNavClick(userRole === 'student' ? 'student-dashboard' : 'admin-dashboard')}
-              className="p-2 text-kl-gold hover:bg-kl-maroon-royal/50 rounded-lg text-xs flex items-center gap-1 border border-kl-gold/30"
-              title="Dashboard"
-            >
-              <LayoutDashboard className="w-4 h-4" />
-            </button>
-            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-kl-gold-soft hover:text-kl-gold hover:bg-kl-maroon-royal/50 rounded-lg transition-colors"
+              className="p-2 text-kl-gold-soft hover:text-kl-gold hover:bg-kl-maroon-royal/50 rounded-lg transition-colors border border-kl-gold/30"
               aria-label="Toggle Navigation"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
 

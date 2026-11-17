@@ -145,7 +145,7 @@ export const UNIVERSITY_PROCESSES = [
       { step: 4, role: "ERP Attendance Controller", action: "Automated biometric waiver and credit onto ERP portal", duration: "Immediate" }
     ],
     authority: "Dr. P. V. Chalapathi, Dean (Student Affairs)",
-    location: "SAC Building, 1st Floor, Room 104"
+    location: "Student Activity Center (SAC), R&D Block, Ground Floor"
   },
   {
     id: "proc-02",
@@ -227,8 +227,8 @@ export const UNIVERSITY_PROCESSES = [
       { step: 3, role: "Dean (Student Affairs)", action: "Venue reservation approval & administrative security clearance", duration: "Day 3" },
       { step: 4, role: "Finance Office", action: "Budget sanction disbursement or vendor purchase order release", duration: "Day 5" }
     ],
-    authority: "Prof. Ch. Hanumantha Rao, Director - SAC",
-    location: "SAC Central Office, Main Arena 2nd Floor"
+    authority: "Er. P. Sai Vijay, Director - SAC",
+    location: "Student Activity Center (SAC), R&D Block, Ground Floor"
   },
   {
     id: "proc-05",
@@ -530,8 +530,8 @@ export const OFFICIAL_DIRECTORY = [
   },
   {
     title: "Director, Student Activity Center (SAC)",
-    name: "Prof. Ch. Hanumantha Rao",
-    office: "SAC Main Building, 2nd Floor, Room 201",
+    name: "Er. P. Sai Vijay",
+    office: "Student Activity Center (SAC), R&D Block, Ground Floor",
     email: "director.sac@kluniversity.in",
     extension: "Ext: 1250",
     hours: "10:00 AM - 06:00 PM (Mon-Sat)"

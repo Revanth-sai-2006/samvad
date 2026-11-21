@@ -7,47 +7,59 @@ export default {
   theme: {
     extend: {
       colors: {
+        maroon: {
+          900: '#2a0614',
+          700: '#5a0f2e',
+          DEFAULT: '#2a0614',
+        },
+        gold: {
+          500: '#c9a24b',
+          300: '#e6cf8f',
+          DEFAULT: '#c9a24b',
+        },
+        ivory: '#f7f1e3',
+        ink: '#1c1216',
+        'text-muted': '#d9c9b8',
+        // Backward-compatibility aliases
         'kl-maroon': {
-          DEFAULT: '#500D22',
-          deep: '#500D22',      // Deep KL Maroon
-          burgundy: '#380A19',  // Dark Burgundy
-          dark: '#280612',      // Darkest Maroon Background
-          royal: '#64132E',
-          surface: '#3F0A1B',
-          subtle: '#1F040D'
+          DEFAULT: '#5a0f2e',
+          deep: '#2a0614',
+          burgundy: '#3a081c',
+          dark: '#2a0614',
+          royal: '#5a0f2e',
+          surface: '#3a081c',
+          subtle: '#1f040d'
         },
         'kl-gold': {
-          DEFAULT: '#C5A052',
-          antique: '#C5A052',   // Antique Gold
-          champagne: '#E3CCA0', // Champagne Gold
-          soft: '#E3CCA0',
-          dark: '#9E7E36',
-          light: '#F5ECE0',
-          border: 'rgba(197, 160, 82, 0.35)',
-          glow: 'rgba(197, 160, 82, 0.15)'
+          DEFAULT: '#c9a24b',
+          antique: '#c9a24b',
+          champagne: '#e6cf8f',
+          soft: '#e6cf8f',
+          dark: '#a88338',
+          light: '#f7f1e3',
+          border: 'rgba(201, 162, 75, 0.3)',
+          glow: 'rgba(201, 162, 75, 0.15)'
         },
-        'kl-ivory': '#FAF8F5',
-        'kl-warm-white': '#FFFFFF',
-        'kl-light-beige': '#F5EFE6',
-        'kl-charcoal': '#1F1A1E',
-        'kl-muted-grey': '#6B646D',
+        'kl-ivory': '#f7f1e3',
+        'kl-warm-white': '#ffffff',
+        'kl-light-beige': '#f7f1e3',
+        'kl-charcoal': '#1c1216',
+        'kl-muted-grey': '#5c4e52',
       },
       fontFamily: {
-        display: ['"Cinzel"', '"Playfair Display"', 'Georgia', 'serif'],
+        logo: ['"Cinzel"', 'Georgia', 'serif'],
+        academic: ['"Cinzel"', 'Georgia', 'serif'],
+        display: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', '"Inter"', '"Noto Sans Telugu"', 'system-ui', '-apple-system', 'sans-serif'],
+        body: ['"Inter"', '"Noto Sans Telugu"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'gold-subtle': '0 4px 20px -2px rgba(197, 160, 82, 0.18)',
-        'maroon-deep': '0 10px 30px -5px rgba(40, 6, 18, 0.45)',
-        'institutional': '0 2px 12px rgba(31, 26, 30, 0.06), 0 1px 3px rgba(31, 26, 30, 0.04)',
-        'premium': '0 8px 30px rgba(80, 13, 34, 0.08), 0 1px 3px rgba(197, 160, 82, 0.25)',
-      },
-      backgroundImage: {
-        'maroon-gradient': 'linear-gradient(135deg, #280612 0%, #380A19 40%, #500D22 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #E3CCA0 0%, #C5A052 50%, #9E7E36 100%)',
-        'card-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%)',
+        'gold-subtle': '0 4px 20px -2px rgba(201, 162, 75, 0.2)',
+        'maroon-deep': '0 10px 30px -5px rgba(42, 6, 20, 0.45)',
+        'domain': '0 8px 24px -4px rgba(201, 162, 75, 0.15)',
+        'club-hover': '0 12px 28px -6px rgba(0, 0, 0, 0.35), 0 0 16px rgba(201, 162, 75, 0.15)',
       }
     },
   },

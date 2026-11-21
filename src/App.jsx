@@ -47,7 +47,6 @@ export default function App() {
       return;
     }
 
-    // Map serviceId to process or open relevant process modal
     const matched = UNIVERSITY_PROCESSES.find(p => 
       (serviceId === 'od-approval' && p.id === 'proc-01') ||
       (serviceId === 'hall-ticket' && p.id === 'proc-02') ||
@@ -80,16 +79,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-kl-ivory text-kl-charcoal flex flex-col font-sans selection:bg-kl-maroon selection:text-kl-gold">
+    <div className="min-h-screen bg-[#f7f1e3] text-[#1c1216] flex flex-col font-sans selection:bg-[#5a0f2e] selection:text-[#e6cf8f]">
       
       {/* Toast Notification Alert */}
       {toastMessage && (
-        <div className="fixed bottom-5 right-5 z-50 bg-kl-maroon-dark text-kl-warm-white px-5 py-3.5 rounded-xl border-2 border-kl-gold shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-5">
-          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+        <div className="fixed bottom-5 right-5 z-50 bg-[#2a0614] text-white px-5 py-3.5 rounded-xl border border-[#c9a24b] shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-5">
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-xs sm:text-sm font-semibold">{toastMessage}</span>
           <button 
             onClick={() => setToastMessage(null)}
-            className="text-kl-gold hover:text-kl-warm-white ml-2 text-xs font-bold"
+            className="text-[#c9a24b] hover:text-white ml-2 text-xs font-bold"
           >
             ✕
           </button>
@@ -106,11 +105,39 @@ export default function App() {
         onOpenGrievance={() => setIsGrievanceOpen(true)}
       />
 
+      {/* Official Institutional Breadcrumb on Inner Pages */}
+      {currentView !== 'home' && !currentView.includes('dashboard') && (
+        <div className="bg-[#ede4d3] border-b border-[#c9a24b]/30 py-2.5 px-4 text-[13px] text-[#5c4e52] shadow-xs">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <button 
+                onClick={() => setCurrentView('home')} 
+                className="text-[#5a0f2e] font-bold hover:underline flex items-center gap-1"
+              >
+                <span>Home</span>
+              </button>
+              <span className="text-[#c9a24b] font-bold">/</span>
+              <span className="text-[#1c1216] font-bold">
+                {currentView === 'processes' && 'University Procedure & Service Directory'}
+                {(currentView === 'sac' || currentView === 'clubs') && 'Student Activity Center (SAC) • 26 Clubs & Domains'}
+                {currentView === 'directory' && 'Official Information Directory & Deans'}
+                {currentView === 'knowledge' && 'Council Knowledge Centre & Regulations'}
+              </span>
+            </div>
+            <div className="hidden sm:flex items-center gap-3 text-[12px] text-[#5a0f2e] font-medium">
+              <span>KL Deemed to be University</span>
+              <span className="text-[#c9a24b]">●</span>
+              <span className="font-bold text-[#5a0f2e]">NAAC A++ Accredited</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Views Container */}
       <div className="flex-1">
         {currentView === 'home' && (
           <main>
-            {/* 1. Hero Section */}
+            {/* 1. Hero Section (Solid deep maroon, 4 animated counters, search, SOPs) */}
             <Hero
               onExploreProcesses={() => {
                 const el = document.getElementById('processes');
@@ -125,7 +152,7 @@ export default function App() {
               onSelectProcess={(proc) => setSelectedProcess(proc)}
             />
 
-            {/* 2. Institutional Dashboard Overview (Executive Desk, Session Status, Updates) */}
+            {/* 2. Institutional Dashboard Overview (Executive Desk, Session Status) */}
             <InstitutionalDashboard 
               onOpenGrievance={() => setIsGrievanceOpen(true)}
               onExploreProcesses={() => {
@@ -138,7 +165,7 @@ export default function App() {
             {/* 3. Frequently Accessed Services */}
             <QuickServices onLaunchService={handleLaunchService} />
 
-            {/* 3. Explore by Category / Full Process Catalog Preview */}
+            {/* 4. Explore by Category / Full Process Catalog Preview */}
             <ProcessCatalog
               onSelectProcess={(proc) => setSelectedProcess(proc)}
               selectedProcess={selectedProcess}
@@ -146,22 +173,22 @@ export default function App() {
               onInitiateApplication={handleInitiateApplication}
             />
 
-            {/* 4. How SAMVAD 360 Works */}
+            {/* 5. How SAMVAD 360 Works */}
             <HowItWorks />
 
-            {/* 5. Student Activity Center (SAC) & Student Council Spotlight */}
+            {/* 6. Student Activity Center (SAC) & 26 Clubs Spotlight */}
             <SACSection
               onLaunchService={handleLaunchService}
               onRsvpSuccess={handleRsvpSuccess}
             />
 
-            {/* 6. Official Information Directory & Deans */}
+            {/* 7. Official Information Directory & Deans */}
             <OfficialDirectory />
 
-            {/* 7. Latest Verified Updates & Council Communiqués */}
+            {/* 8. Latest Verified Updates & Council Communiqués */}
             <VerifiedUpdates />
 
-            {/* 8. UN SDG 16 Institutional Commitment */}
+            {/* 9. UN SDG 16 Institutional Commitment */}
             <SDG16Commitment onOpenGrievance={() => setIsGrievanceOpen(true)} />
           </main>
         )}
@@ -193,90 +220,53 @@ export default function App() {
         )}
 
         {currentView === 'knowledge' && (
-          <div className="py-12 max-w-5xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-10">
-              <span className="text-xs font-bold text-kl-maroon uppercase tracking-widest block mb-1">
-                Student Council Knowledge Base
-              </span>
-              <h2 className="text-3xl font-display font-bold text-kl-maroon-dark">
-                University Regulations & FAQs
-              </h2>
-              <div className="gold-separator w-24 mx-auto my-3" />
-            </div>
-
-            <div className="space-y-4">
-              <div className="bg-kl-warm-white p-5 rounded-xl border border-kl-gold/30">
-                <h3 className="text-base font-bold text-kl-charcoal mb-2">
-                  What is the minimum attendance requirement for End-Semester examinations?
-                </h3>
-                <p className="text-xs sm:text-sm text-kl-muted-grey leading-relaxed">
-                  KL University mandates a strict minimum of 75% aggregate attendance. Students with verified medical grounds or official On-Duty (OD) participation through the Student Activity Center (SAC) may be granted condonation down to 65% subject to approval by the Dean (Academics).
-                </p>
-              </div>
-
-              <div className="bg-kl-warm-white p-5 rounded-xl border border-kl-gold/30">
-                <h3 className="text-base font-bold text-kl-charcoal mb-2">
-                  How does the SAMVAD 360 72-Hour Grievance SLA work?
-                </h3>
-                <p className="text-xs sm:text-sm text-kl-muted-grey leading-relaxed">
-                  Every petition docketed via SAMVAD 360 is tracked by an automated timer. If the respondent department does not register an official preliminary response within 72 hours, the matter is automatically flagged to the Hon'ble Student Ombudsman and Dean of Student Affairs for direct intervention.
-                </p>
-              </div>
-
-              <div className="bg-kl-warm-white p-5 rounded-xl border border-kl-gold/30">
-                <h3 className="text-base font-bold text-kl-charcoal mb-2">
-                  How can student clubs apply for event funding and venue reservations?
-                </h3>
-                <p className="text-xs sm:text-sm text-kl-muted-grey leading-relaxed">
-                  Club leads must submit an event proposal along with an itemized budget signed by their Faculty Advisor at least 5 working days before the scheduled date via the SAC Event Approval SOP.
-                </p>
-              </div>
-            </div>
+          <div className="py-8">
+            <HowItWorks />
+            <SDG16Commitment onOpenGrievance={() => setIsGrievanceOpen(true)} />
           </div>
         )}
 
         {currentView === 'student-dashboard' && (
           <StudentDashboard
+            userRole={userRole}
             applications={applications}
-            onExploreProcesses={() => setCurrentView('processes')}
             onOpenGrievance={() => setIsGrievanceOpen(true)}
-            onBackHome={() => setCurrentView('home')}
+            onExploreProcesses={() => setCurrentView('processes')}
           />
         )}
 
         {currentView === 'admin-dashboard' && (
           <AdminDashboard
-            onBackHome={() => setCurrentView('home')}
+            userRole={userRole}
+            applications={applications}
+            onOpenGrievance={() => setIsGrievanceOpen(true)}
           />
         )}
       </div>
 
-      {/* Global Footer (shown on public views) */}
-      {!currentView.includes('dashboard') && (
-        <Footer
-          onNavigate={(viewId) => {
-            setCurrentView(viewId);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          onOpenGrievance={() => setIsGrievanceOpen(true)}
-        />
-      )}
-
       {/* Global Modals */}
       {isAuthOpen && (
         <AuthModal
+          isOpen={isAuthOpen}
+          onClose={() => setIsAuthOpen(false)}
           userRole={userRole}
           setUserRole={setUserRole}
-          onClose={() => setIsAuthOpen(false)}
         />
       )}
 
       {isGrievanceOpen && (
         <GrievanceModal
+          isOpen={isGrievanceOpen}
           onClose={() => setIsGrievanceOpen(false)}
-          onGrievanceSubmitted={handleGrievanceSubmitted}
+          onSubmitSuccess={handleGrievanceSubmitted}
         />
       )}
+
+      {/* Primary Global Institutional Footer */}
+      <Footer
+        onNavigate={(viewId) => setCurrentView(viewId)}
+        onOpenGrievance={() => setIsGrievanceOpen(true)}
+      />
 
     </div>
   );

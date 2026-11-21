@@ -28,23 +28,27 @@ export default function EventRsvpModal({ event, onClose, onRsvpSuccess }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4"
+      onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
       <div 
         className="bg-kl-warm-white w-full max-w-lg rounded-2xl shadow-2xl border-2 border-kl-gold/40 overflow-hidden animate-in fade-in zoom-in-95"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-maroon-pattern text-kl-warm-white p-6 border-b border-kl-gold/30 relative">
+        <div className="bg-gradient-to-r from-[#42101f] via-[#5a0f2e] to-[#42101f] text-white p-6 border-b border-[#c9a24b]/40 relative">
           <button 
             onClick={onClose}
-            className="absolute top-5 right-5 text-kl-gold-soft hover:text-kl-warm-white p-1 rounded-lg hover:bg-kl-maroon/50"
+            aria-label="Close event window"
+            className="absolute top-3 right-3 z-20 w-11 h-11 flex items-center justify-center text-[#e6cf8f] hover:text-white bg-[#2a0614]/70 hover:bg-[#2a0614] rounded-full border border-[#c9a24b]/50"
           >
             <X className="w-5 h-5" />
           </button>
 
           <div className="flex items-center gap-2 mb-2">
             <CouncilBadge className="w-4 h-4 text-kl-gold" />
-            <span className="text-xs font-bold text-kl-gold-soft uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#e6cf8f] uppercase tracking-wider">
               Official SAC Event Registration
             </span>
           </div>
@@ -53,7 +57,7 @@ export default function EventRsvpModal({ event, onClose, onRsvpSuccess }) {
             {event.title}
           </h3>
 
-          <div className="flex items-center gap-2 text-xs text-kl-ivory/80 mt-2">
+          <div className="flex items-center gap-2 text-xs text-[#f7f1e3] mt-2">
             <span className="bg-kl-gold/20 text-kl-gold px-2 py-0.5 rounded font-semibold border border-kl-gold/30">
               {event.domain}
             </span>

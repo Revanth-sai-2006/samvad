@@ -72,7 +72,7 @@ export default function InstitutionalDashboard({ onOpenGrievance, onExploreProce
                   Service Request Overview
                 </span>
                 <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                  98.4% SLA Compliance
+Demonstration metric
                 </span>
               </div>
 
@@ -86,7 +86,7 @@ export default function InstitutionalDashboard({ onOpenGrievance, onExploreProce
                 <div className="p-3 bg-kl-ivory rounded-lg border border-kl-gold/20">
                   <span className="text-[10px] text-kl-muted-grey uppercase font-bold block">Resolved (2026)</span>
                   <span className="text-2xl font-display font-black text-emerald-700">2,410</span>
-                  <span className="text-[10px] text-emerald-700 block mt-0.5">100% Documented</span>
+                  <span className="text-[10px] text-emerald-700 block mt-0.5">Synthetic pilot record</span>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export default function InstitutionalDashboard({ onOpenGrievance, onExploreProce
             <div className="pt-3 border-t border-kl-gold/15 flex items-center justify-between text-xs font-semibold text-kl-maroon">
               <span className="flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                Guaranteed Turnaround SLA
+Planned turnaround indicator
               </span>
               <button 
                 onClick={onExploreProcesses}
@@ -129,7 +129,7 @@ export default function InstitutionalDashboard({ onOpenGrievance, onExploreProce
                   Administrative Updates
                 </span>
                 <span className="text-[10px] font-mono text-kl-muted-grey">
-                  KLEF/SC/SEC/2026
+DEMO/SC/SEC/2026
                 </span>
               </div>
 
@@ -163,7 +163,7 @@ export default function InstitutionalDashboard({ onOpenGrievance, onExploreProce
             </div>
 
             <div className="pt-3 border-t border-kl-gold/15 flex items-center justify-between text-xs text-kl-muted-grey">
-              <span>All updates cryptographically signed</span>
+              <span>Source and review status shown here</span>
               <span className="text-emerald-700 font-bold">● Official Record</span>
             </div>
           </div>

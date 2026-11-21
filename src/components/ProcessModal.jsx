@@ -49,16 +49,20 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4"
+      onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
       <div 
-        className="bg-kl-warm-white w-full max-w-3xl rounded-2xl shadow-2xl border-2 border-kl-gold/40 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="bg-kl-warm-white w-full max-w-3xl max-h-[calc(100vh-2rem)] rounded-2xl shadow-2xl border-2 border-kl-gold/40 overflow-hidden animate-in fade-in zoom-in-95 duration-200 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Institutional Header */}
-        <div className="bg-maroon-pattern text-kl-warm-white p-6 border-b border-kl-gold/30 relative">
+        <div className="bg-gradient-to-r from-[#42101f] via-[#5a0f2e] to-[#42101f] text-white p-6 border-b border-[#c9a24b]/40 relative shrink-0">
           <button 
             onClick={onClose}
-            className="absolute top-5 right-5 text-kl-gold-soft hover:text-kl-warm-white p-1 rounded-lg hover:bg-kl-maroon/50 transition-colors"
+            aria-label="Close process window"
+            className="absolute top-3 right-3 z-20 w-11 h-11 flex items-center justify-center text-[#e6cf8f] hover:text-white bg-[#2a0614]/70 hover:bg-[#2a0614] rounded-full border border-[#c9a24b]/50 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -67,16 +71,16 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
             <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-kl-maroon-dark text-kl-gold border border-kl-gold/40">
               {process.code}
             </span>
-            <span className="text-xs text-kl-gold-soft/80 font-medium">
+            <span className="text-xs text-[#e6cf8f] font-medium">
               Official University Standard Operating Procedure
             </span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-display font-bold text-kl-warm-white pr-8">
+          <h2 className="text-xl sm:text-2xl font-display font-bold text-white pr-16">
             {process.title}
           </h2>
 
-          <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-kl-ivory/90">
+          <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-[#f7f1e3]">
             <span className="flex items-center gap-1">
               <Building className="w-3.5 h-3.5 text-kl-gold" />
               {process.department}
@@ -84,7 +88,7 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
             <span className="text-kl-gold/40">•</span>
             <span className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-kl-gold" />
-              Guaranteed SLA: <strong className="text-kl-gold">{process.sla}</strong>
+              Planned SLA: <strong className="text-[#e6cf8f]">{process.sla}</strong>
             </span>
           </div>
 
@@ -95,7 +99,7 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
               className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeTab === 'workflow'
                   ? 'bg-kl-gold text-kl-maroon-dark shadow-sm'
-                  : 'text-kl-gold-soft hover:bg-kl-maroon/40'
+                  : 'text-[#e6cf8f] hover:bg-white/10'
               }`}
             >
               1. Procedure & Workflow Details
@@ -105,7 +109,7 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
               className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeTab === 'apply'
                   ? 'bg-kl-gold text-kl-maroon-dark shadow-sm'
-                  : 'text-kl-gold-soft hover:bg-kl-maroon/40'
+                  : 'text-[#e6cf8f] hover:bg-white/10'
               }`}
             >
               2. Digital Request Initiation
@@ -114,7 +118,7 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 max-h-[75vh] overflow-y-auto">
+        <div className="p-6 flex-1 min-h-0 overflow-y-auto">
           {activeTab === 'workflow' ? (
             <div className="space-y-6">
               
@@ -350,9 +354,8 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
           )}
         </div>
 
-        {/* Modal Footer */}
-        {activeTab === 'workflow' && (
-          <div className="bg-kl-light-beige/60 p-4 border-t border-kl-gold/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+        {/* Persistent Modal Footer */}
+        <div className="shrink-0 bg-kl-light-beige/90 p-4 border-t border-kl-gold/20 flex flex-col sm:flex-row items-center justify-between gap-3">
             <span className="text-xs text-kl-muted-grey">
               Need assistance? Contact <strong className="text-kl-maroon">{process.department}</strong>
             </span>
@@ -363,16 +366,17 @@ export default function ProcessModal({ process, onClose, onInitiateApplication }
               >
                 Close
               </button>
-              <button
-                onClick={() => setActiveTab('apply')}
-                className="w-full sm:w-auto px-5 py-2 bg-kl-maroon text-kl-gold font-bold text-xs rounded-lg hover:bg-kl-maroon-dark transition-colors flex items-center justify-center gap-1.5 shadow-sm"
-              >
-                <span>Initiate This Request</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              {activeTab === 'workflow' && (
+                <button
+                  onClick={() => setActiveTab('apply')}
+                  className="w-full sm:w-auto px-5 py-2 bg-kl-maroon text-kl-gold font-bold text-xs rounded-lg hover:bg-kl-maroon-dark transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                >
+                  <span>Initiate This Request</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
           </div>
-        )}
       </div>
     </div>
   );

@@ -26,23 +26,27 @@ export default function Navbar({
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'processes', label: 'Service Directory' },
-    { id: 'sac', label: 'Student Activity Center' },
-    { id: 'clubs', label: 'Council & Clubs' },
+    { id: 'sac', label: 'Student Activity Center', externalUrl: 'https://sac.kluniversity.in' },
+    { id: 'clubs', label: 'Council & Clubs', externalUrl: 'https://sac.kluniversity.in' },
     { id: 'knowledge', label: 'Knowledge Centre' },
     { id: 'directory', label: 'Official Directory' },
   ];
 
-  const handleNavClick = (id) => {
-    setCurrentView(id);
+  const handleNavClick = (id, externalUrl) => {
     setMobileMenuOpen(false);
+    if (externalUrl) {
+      window.location.assign(externalUrl);
+      return;
+    }
+    setCurrentView(id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#2a0614]/95 backdrop-blur-md border-b border-[#c9a24b]/30 shadow-[0_4px_20px_rgba(42,6,20,0.5)] transition-all duration-200">
+    <header className="glass-panel-dark sticky top-0 z-40 bg-gradient-to-r from-[#4a1022]/90 via-[#42101f]/90 to-[#350b1a]/90 border-b border-[#c9a24b]/40 shadow-[0_4px_20px_rgba(42,6,20,0.42)] transition-all duration-200">
       
       {/* Merged Slim Top Utility Strip */}
-      <div className="bg-[#1c040d] text-[#e6cf8f] text-[11px] border-b border-[#c9a24b]/20 py-1 px-4 hidden md:block">
+      <div className="bg-[#2d0916] text-[#e6cf8f] text-[11px] border-b border-[#c9a24b]/30 py-1 px-4 hidden md:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1.5 font-bold text-[#c9a24b]">
@@ -95,7 +99,7 @@ export default function Navbar({
                 </span>
               </div>
               <span className="text-[10px] sm:text-[11px] font-medium tracking-wide text-[#e6cf8f]/80 -mt-0.5">
-                KLEF Deemed to be University • Student Council Secretariat
+                KL Deemed to be University • Student Council Secretariat
               </span>
             </div>
           </div>
@@ -107,7 +111,7 @@ export default function Navbar({
               return (
                 <button
                   key={link.id}
-                  onClick={() => handleNavClick(link.id)}
+                  onClick={() => handleNavClick(link.id, link.externalUrl)}
                   className={`relative px-3 py-2 text-xs xl:text-[13px] font-semibold whitespace-nowrap tracking-wide transition-colors duration-200 ${
                     isActive 
                       ? 'text-[#c9a24b] font-bold' 
@@ -168,7 +172,7 @@ export default function Navbar({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#2a0614] border-b border-[#c9a24b]/30 px-4 pt-2 pb-6 space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-2">
+        <div className="lg:hidden bg-[#42101f] border-b border-[#c9a24b]/30 px-4 pt-2 pb-6 space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-2">
           <div className="p-3 bg-[#5a0f2e]/60 rounded-lg border border-[#c9a24b]/25 mb-3 flex items-center justify-between text-xs">
             <div className="flex items-center gap-2">
               <CouncilBadge className="w-4 h-4" />
@@ -188,7 +192,7 @@ export default function Navbar({
             {navLinks.map((link) => (
               <button
                 key={link.id}
-                onClick={() => handleNavClick(link.id)}
+                onClick={() => handleNavClick(link.id, link.externalUrl)}
                 className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs font-semibold transition-colors ${
                   currentView === link.id
                     ? 'bg-[#5a0f2e] text-[#c9a24b] font-bold border-l-4 border-[#c9a24b]'

@@ -51,7 +51,7 @@ export default function ProcessCatalog({ onSelectProcess, selectedProcess, onClo
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="bg-kl-ivory p-4 rounded-2xl border border-kl-gold/30 shadow-sm mb-8 space-y-4">
+        <div className="glass-panel p-4 rounded-2xl border border-kl-gold/30 mb-8 space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             
             {/* Search Input */}
@@ -113,7 +113,7 @@ export default function ProcessCatalog({ onSelectProcess, selectedProcess, onClo
               <div
                 key={proc.id}
                 onClick={() => onSelectProcess(proc)}
-                className="group bg-kl-warm-white rounded-xl border border-kl-gold/30 hover:border-kl-gold hover:shadow-premium transition-all duration-200 cursor-pointer flex flex-col justify-between overflow-hidden"
+                className="glass-panel group rounded-xl border border-kl-gold/30 hover:border-kl-gold hover:shadow-premium transition-all duration-200 cursor-pointer flex flex-col justify-between overflow-hidden"
               >
                 {/* Top Banner with Code & Department */}
                 <div className="p-5 pb-3">

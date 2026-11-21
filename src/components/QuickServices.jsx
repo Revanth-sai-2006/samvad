@@ -41,7 +41,7 @@ export default function QuickServices({ onLaunchService }) {
               Frequently Accessed Services
             </h2>
             <p className="text-sm text-kl-muted-grey mt-1">
-              Initiate official university procedures with guaranteed SLA tracking and verified routing.
+              Follow plain-language university procedures with checklists, sources, and official escalation channels.
             </p>
           </div>
           <div className="mt-4 md:mt-0 flex items-center gap-2 text-xs font-semibold text-kl-maroon bg-kl-gold/15 px-3 py-1.5 rounded-lg border border-kl-gold/30">

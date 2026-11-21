@@ -71,7 +71,7 @@ export default function SDG16Commitment({ onOpenGrievance }) {
             <span className="font-display font-black text-3xl sm:text-4xl text-kl-warm-white">
               {SDG16_METRICS.casesResolvedThisYear}
             </span>
-            <span className="text-xs text-kl-gold-soft/70 block mt-1">100% Documented Resolutions</span>
+            <span className="text-xs text-kl-gold-soft/70 block mt-1">Traceable Dockets (Pilot Target)</span>
           </div>
 
           <div className="bg-kl-maroon-dark/90 p-5 rounded-2xl border border-kl-gold/30 text-center backdrop-blur-sm">

@@ -24,16 +24,20 @@ export default function AuthModal({ userRole, setUserRole, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4"
+      onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
       <div 
         className="bg-kl-warm-white w-full max-w-md rounded-2xl shadow-2xl border-2 border-kl-gold/40 overflow-hidden animate-in fade-in zoom-in-95"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-maroon-pattern text-kl-warm-white p-6 border-b border-kl-gold/30 text-center relative">
+        <div className="bg-gradient-to-r from-[#42101f] via-[#5a0f2e] to-[#42101f] text-white p-6 border-b border-[#c9a24b]/40 text-center relative">
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 text-kl-gold-soft hover:text-kl-warm-white p-1 rounded-lg hover:bg-kl-maroon/50"
+            aria-label="Close authentication window"
+            className="absolute top-3 right-3 z-20 w-11 h-11 flex items-center justify-center text-[#e6cf8f] hover:text-white bg-[#2a0614]/70 hover:bg-[#2a0614] rounded-full border border-[#c9a24b]/50"
           >
             <X className="w-5 h-5" />
           </button>
@@ -42,7 +46,7 @@ export default function AuthModal({ userRole, setUserRole, onClose }) {
           <h3 className="font-display font-bold text-xl text-kl-warm-white">
             KL Institutional Single Sign-On
           </h3>
-          <p className="text-xs text-kl-gold-soft/80 mt-0.5">
+          <p className="text-xs text-[#e6cf8f] mt-0.5">
             SAMVAD 360 University Authentication Service
           </p>
         </div>

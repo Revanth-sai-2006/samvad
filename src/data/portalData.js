@@ -3,7 +3,7 @@ export const UNIVERSITY_INFO = {
   shortName: "KL University",
   acronym: "KLEF",
   portalName: "SAMVAD 360",
-  tagline: "Your University. Your Processes. Your Voice.",
+  tagline: "Find the process. Know the office. Follow the official next step.",
   description: "A unified digital gateway to navigate university processes, discover student services and connect with the right institutional resources.",
   accreditation: "NAAC A++ Graded (3.57 CGPA) • Category-I Deemed to be University • UGC / AICTE Approved",
   ranking: "NIRF Top 35 University • 50+ Years of Academic Heritage",

@@ -132,12 +132,12 @@ export default function Hero({ onExploreProcesses, onDiscoverSAC, onSelectProces
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 flex flex-col items-center text-center">
         
         {/* Accreditation & Session Badge */}
-        <div className="motion-fade-up inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#c9a24b]/45 bg-white/90 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm backdrop-blur-sm">
+        <div className="glass-panel motion-fade-up inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#c9a24b]/45 text-xs font-bold tracking-widest uppercase mb-4">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
-          <span className="text-[#5a0f2e] font-bold">KLEF Deemed to be University</span>
+          <span className="text-[#5a0f2e] font-bold">KL Deemed to be University</span>
           <span className="text-[#c9a24b]">•</span>
           <span className="text-[#4a3f44] font-semibold">NAAC A++ Accredited</span>
         </div>
@@ -147,15 +147,15 @@ export default function Hero({ onExploreProcesses, onDiscoverSAC, onSelectProces
           <span 
             className="font-logo text-xs sm:text-sm font-bold tracking-[0.24em] text-[#8c6d23] uppercase block"
           >
-            Official Student Activity Portal
+Official Process Navigator & Service Guide
           </span>
         </div>
 
         {/* Large Headline (Authoritative, Stately Academic Typography) */}
         <div className="motion-fade-up mb-3 max-w-4xl">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#2a0614] leading-[1.15] font-display">
-            26 Clubs. 5 Domains. <br className="hidden sm:inline" />
-            <span className="text-[#5a0f2e]">One Campus Community.</span>
+            Find the right office.<br className="hidden sm:inline" />
+            <span className="text-[#5a0f2e]">Follow verified next steps.</span>
           </h1>
         </div>
 
@@ -172,8 +172,8 @@ export default function Hero({ onExploreProcesses, onDiscoverSAC, onSelectProces
         {/* Description */}
         <div className="motion-fade-up max-w-2xl mx-auto mb-8 text-sm sm:text-base text-[#4a3f44] leading-relaxed font-normal">
           <p>
-            The unified student portal of KL Deemed to be University for SAC club governance, 
-            flagship campus events, leadership councils, and verified university procedures.
+            A plain-language guide to university processes, required documents, responsible offices,
+            verified channels, and clear escalation routes.
           </p>
         </div>
 
@@ -182,20 +182,20 @@ export default function Hero({ onExploreProcesses, onDiscoverSAC, onSelectProces
             ═════════════════════════════════════════════════════════════ */}
         <div className="motion-fade-up flex flex-wrap items-center justify-center gap-4 mb-10">
           <button
-            onClick={onDiscoverSAC}
+            onClick={onExploreProcesses}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#5a0f2e] hover:bg-[#3a081c] text-white text-sm font-bold rounded-xl border border-[#7a1a42] shadow-[0_4px_14px_rgba(90,15,46,0.25)] hover:shadow-[0_6px_20px_rgba(90,15,46,0.35)] hover:-translate-y-0.5 transition-all cursor-pointer"
           >
             <Compass className="w-4 h-4 text-[#e6cf8f]" />
-            <span>Explore Clubs</span>
+            <span>Browse Processes</span>
             <ArrowRight className="w-4 h-4 text-[#e6cf8f]" />
           </button>
 
           <button
-            onClick={onDiscoverSAC}
+            onClick={onExploreProcesses}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-[#faf5eb] text-[#5a0f2e] text-sm font-bold rounded-xl border-2 border-[#5a0f2e]/30 hover:border-[#5a0f2e] shadow-sm hover:-translate-y-0.5 transition-all cursor-pointer"
           >
             <Calendar className="w-4 h-4 text-[#5a0f2e]" />
-            <span>Upcoming Events</span>
+            <span>Use a Guided Checklist</span>
           </button>
         </div>
 
@@ -208,7 +208,7 @@ export default function Hero({ onExploreProcesses, onDiscoverSAC, onSelectProces
               isFocused ? 'ring-2 ring-[#c9a24b] shadow-[0_8px_30px_rgba(201,162,75,0.3)]' : 'shadow-[0_8px_24px_rgba(42,6,20,0.06)]'
             }`}
           >
-            <div className="relative flex items-center bg-white rounded-2xl border-2 border-[#c9a24b]/40 px-3 py-1.5">
+            <div className="glass-panel relative flex items-center rounded-2xl border-2 border-[#c9a24b]/40 px-3 py-1.5">
               <div className="p-2 text-[#5a0f2e] shrink-0">
                 <Search className="w-5 h-5 text-[#5a0f2e]" />
               </div>

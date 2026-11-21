@@ -6,13 +6,16 @@ export default function NoticeModal({ notice, onClose }) {
   if (!notice) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto bg-kl-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4"
+      onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
       <div 
         className="bg-kl-warm-white w-full max-w-2xl rounded-2xl shadow-2xl border-2 border-kl-gold/40 overflow-hidden animate-in fade-in zoom-in-95"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-maroon-pattern text-kl-warm-white p-5 border-b border-kl-gold/30 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#42101f] via-[#5a0f2e] to-[#42101f] text-white p-5 border-b border-[#c9a24b]/40 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <CouncilBadge className="w-5 h-5 text-kl-gold" />
             <span className="text-xs font-bold text-kl-gold uppercase tracking-wider">
@@ -21,7 +24,8 @@ export default function NoticeModal({ notice, onClose }) {
           </div>
           <button 
             onClick={onClose}
-            className="text-kl-gold-soft hover:text-kl-warm-white p-1 rounded-lg hover:bg-kl-maroon/50"
+            aria-label="Close notice window"
+            className="w-11 h-11 flex items-center justify-center text-[#e6cf8f] hover:text-white bg-[#2a0614]/70 hover:bg-[#2a0614] rounded-full border border-[#c9a24b]/50"
           >
             <X className="w-5 h-5" />
           </button>
@@ -33,7 +37,7 @@ export default function NoticeModal({ notice, onClose }) {
           <div className="text-center pb-6 border-b-2 border-kl-maroon/20 mb-6">
             <KLUUniversityCrest className="w-14 h-14 mx-auto mb-2" variant="gold" />
             <h3 className="font-display font-bold text-lg text-kl-maroon-dark uppercase tracking-wide">
-              KLEF Deemed to be University
+              KL Deemed to be University
             </h3>
             <p className="text-[11px] text-kl-muted-grey font-semibold">
               Koneru Lakshmaiah Education Foundation • Green Fields, Vaddeswaram, Guntur (AP)
@@ -87,7 +91,7 @@ export default function NoticeModal({ notice, onClose }) {
           <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between">
             <div className="flex items-center gap-2 text-emerald-700 text-xs font-semibold">
               <ShieldCheck className="w-5 h-5 text-emerald-600" />
-              <span>Cryptographically Signed by KLEF Central Registry</span>
+              <span>Review and source approval pending</span>
             </div>
             <button
               onClick={() => window.print()}

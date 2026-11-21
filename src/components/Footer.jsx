@@ -19,13 +19,14 @@ export default function Footer({ onNavigate, onOpenGrievance }) {
   };
 
   return (
-    <footer className="bg-[#1c040d] text-[#f7f1e3] border-t-2 border-[#c9a24b]/40 relative">
+    <footer className="bg-gradient-to-b from-[#2d0916] via-[#210711] to-[#15030a] text-[#f7f1e3] border-t border-[#c9a24b]/50 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.055]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #e6cf8f 1px, transparent 0)', backgroundSize: '28px 28px' }} />
       
       {/* Top Gold Accent Bar */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-[#c9a24b] to-transparent" />
+      <div className="h-[3px] bg-gradient-to-r from-transparent via-[#c9a24b] to-transparent" />
 
       {/* Emergency Helpline Strip */}
-      <div className="bg-[#2a0614] border-b border-[#c9a24b]/20 py-3 px-4">
+      <div className="relative bg-[#241019] border-b border-[#c9a24b]/25 py-3 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2 text-[#c9a24b]">
             <ShieldCheck className="w-4 h-4 text-[#c9a24b]" />
@@ -40,7 +41,7 @@ export default function Footer({ onNavigate, onOpenGrievance }) {
       </div>
 
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           
           {/* Column 1 & 2: University & Council Identity */}
@@ -127,14 +128,14 @@ export default function Footer({ onNavigate, onOpenGrievance }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('sac')} className="hover:text-[#c9a24b] transition-colors">
+                <a href="https://sac.kluniversity.in" className="hover:text-[#c9a24b] transition-colors">
                   Student Activity Center (SAC)
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('clubs')} className="hover:text-[#c9a24b] transition-colors">
+                <a href="https://sac.kluniversity.in" className="hover:text-[#c9a24b] transition-colors">
                   26 Official SAC Clubs
-                </button>
+                </a>
               </li>
               <li>
                 <button onClick={() => onNavigate('directory')} className="hover:text-[#c9a24b] transition-colors">
@@ -212,7 +213,7 @@ export default function Footer({ onNavigate, onOpenGrievance }) {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 bg-[#2a0614] rounded-lg text-[#c9a24b] hover:text-white border border-[#c9a24b]/40 hover:border-[#c9a24b] transition-all duration-200"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 bg-[#35101f] rounded-lg text-[#c9a24b] hover:bg-[#4a1022] hover:text-white border border-[#c9a24b]/50 hover:border-[#c9a24b] transition-all duration-200 shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

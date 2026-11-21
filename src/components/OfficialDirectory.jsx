@@ -39,43 +39,43 @@ export default function OfficialDirectory() {
           {OFFICIAL_DIRECTORY.map((contact, idx) => (
             <div
               key={idx}
-              className="bg-kl-ivory/80 rounded-2xl p-6 border border-kl-gold/30 hover:border-kl-gold hover:shadow-premium transition-all duration-200 flex flex-col justify-between"
+              className="group bg-white rounded-2xl p-6 border border-kl-gold/30 hover:bg-[#2a0614] hover:border-[#c9a24b] hover:text-white transition-none cursor-default flex flex-col justify-between shadow-[0_8px_24px_rgba(42,6,20,0.06)]"
             >
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-kl-maroon bg-kl-warm-white px-2.5 py-1 rounded border border-kl-gold/25 inline-block mb-3">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-kl-maroon bg-kl-warm-white group-hover:text-[#e6cf8f] group-hover:bg-[#5a0f2e] px-2.5 py-1 rounded border border-kl-gold/25 group-hover:border-[#c9a24b]/50 inline-block mb-3">
                   {contact.title}
                 </span>
 
-                <h3 className="text-lg font-display font-bold text-kl-charcoal mb-3">
+                <h3 className="text-lg font-display font-bold text-kl-charcoal group-hover:text-white mb-3">
                   {contact.name}
                 </h3>
 
-                <div className="space-y-2.5 text-xs text-kl-charcoal/90">
+                <div className="space-y-2.5 text-xs text-kl-charcoal/90 group-hover:text-[#f7f1e3]">
                   <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-kl-maroon shrink-0 mt-0.5" />
+                    <MapPin className="w-4 h-4 text-kl-maroon group-hover:text-[#c9a24b] shrink-0 mt-0.5" />
                     <span>{contact.office}</span>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-kl-gold-dark shrink-0" />
-                    <span className="font-mono text-kl-maroon select-all">{contact.email}</span>
+                    <Mail className="w-4 h-4 text-kl-gold-dark group-hover:text-[#e6cf8f] shrink-0" />
+                    <span className="font-mono text-kl-maroon group-hover:text-[#e6cf8f] select-all">{contact.email}</span>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span className="font-semibold text-kl-charcoal">{contact.extension}</span>
+                    <Phone className="w-4 h-4 text-emerald-600 group-hover:text-[#c9a24b] shrink-0" />
+                    <span className="font-semibold text-kl-charcoal group-hover:text-white">{contact.extension}</span>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-kl-muted-grey shrink-0" />
-                    <span className="text-kl-muted-grey">{contact.hours}</span>
+                    <Clock className="w-4 h-4 text-kl-muted-grey group-hover:text-[#d9c9b8] shrink-0" />
+                    <span className="text-kl-muted-grey group-hover:text-[#d9c9b8]">{contact.hours}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-kl-gold/20 flex items-center justify-between text-[11px] font-semibold text-kl-maroon">
+              <div className="mt-5 pt-4 border-t border-kl-gold/20 group-hover:border-[#c9a24b]/30 flex items-center justify-between text-[11px] font-semibold text-kl-maroon group-hover:text-[#e6cf8f]">
                 <span>Official Channel</span>
-                <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                <span className="text-emerald-700 bg-emerald-50 group-hover:text-[#e6cf8f] group-hover:bg-[#5a0f2e] px-2 py-0.5 rounded border border-emerald-200 group-hover:border-[#c9a24b]/50">
                   Active
                 </span>
               </div>

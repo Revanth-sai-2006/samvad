@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import InstitutionalDashboard from './components/InstitutionalDashboard';
 import QuickServices from './components/QuickServices';
 import ProcessCatalog from './components/ProcessCatalog';
-import SACSection from './components/SACSection';
 import HowItWorks from './components/HowItWorks';
 import OfficialDirectory from './components/OfficialDirectory';
 import VerifiedUpdates from './components/VerifiedUpdates';
@@ -14,6 +13,7 @@ import AdminDashboard from './components/AdminDashboard';
 import GrievanceModal from './components/GrievanceModal';
 import AuthModal from './components/AuthModal';
 import Footer from './components/Footer';
+import { KLUUniversityCrest } from './components/Crest';
 
 import { 
   UNIVERSITY_PROCESSES, 
@@ -21,6 +21,7 @@ import {
 } from './data/portalData';
 
 export default function App() {
+  const [isCinematicLoading, setIsCinematicLoading] = useState(true);
   const [currentView, setCurrentView] = useState('home'); // 'home' | 'processes' | 'sac' | 'clubs' | 'knowledge' | 'directory' | 'student-dashboard' | 'admin-dashboard'
   const [userRole, setUserRole] = useState('student'); // 'student' | 'admin'
   const [applications, setApplications] = useState(SAMPLE_STUDENT_APPLICATIONS);
@@ -29,6 +30,22 @@ export default function App() {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isGrievanceOpen, setIsGrievanceOpen] = useState(false);
   const [selectedProcess, setSelectedProcess] = useState(null);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const duration = reduceMotion ? 700 : 2200;
+    document.body.style.overflow = 'hidden';
+
+    const timer = window.setTimeout(() => {
+      setIsCinematicLoading(false);
+      document.body.style.overflow = '';
+    }, duration);
+
+    return () => {
+      window.clearTimeout(timer);
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   // Notification Toast
   const [toastMessage, setToastMessage] = useState(null);
@@ -80,6 +97,26 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#f7f1e3] text-[#1c1216] flex flex-col font-sans selection:bg-[#5a0f2e] selection:text-[#e6cf8f]">
+      {isCinematicLoading && (
+        <div className="cinematic-loader" role="status" aria-label="Loading SAMVAD 360">
+          <div className="cinematic-loader__glow" />
+          <div className="cinematic-loader__orbit cinematic-loader__orbit--outer">
+            <span className="cinematic-loader__dot" />
+          </div>
+          <div className="cinematic-loader__orbit cinematic-loader__orbit--middle">
+            <span className="cinematic-loader__dot cinematic-loader__dot--reverse" />
+          </div>
+          <div className="cinematic-loader__crest">
+            <KLUUniversityCrest className="w-24 h-24 sm:w-28 sm:h-28" variant="gold" />
+          </div>
+          <div className="cinematic-loader__brand">
+            <span>SAMVAD</span>
+            <strong>360</strong>
+          </div>
+          <p>Official Process Navigator</p>
+          <div className="cinematic-loader__progress"><span /></div>
+        </div>
+      )}
       
       {/* Toast Notification Alert */}
       {toastMessage && (
@@ -105,6 +142,18 @@ export default function App() {
         onOpenGrievance={() => setIsGrievanceOpen(true)}
       />
 
+      {/* Institutional review and content-freshness notice */}
+      <div className="glass-panel bg-[#ede4d3]/85 border-b border-[#c9a24b]/30 px-4 py-2 text-[11px] text-[#5c4e52]">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+          <p>
+            <strong className="text-[#5a0f2e]">Review status:</strong> Demonstration data — institution and service-owner approval required before real use.
+          </p>
+          <p className="font-semibold">
+            Content version 1.0 • 19 October 2026 • Owner: Pending institutional assignment
+          </p>
+        </div>
+      </div>
+
       {/* Official Institutional Breadcrumb on Inner Pages */}
       {currentView !== 'home' && !currentView.includes('dashboard') && (
         <div className="bg-[#ede4d3] border-b border-[#c9a24b]/30 py-2.5 px-4 text-[13px] text-[#5c4e52] shadow-xs">
@@ -119,7 +168,6 @@ export default function App() {
               <span className="text-[#c9a24b] font-bold">/</span>
               <span className="text-[#1c1216] font-bold">
                 {currentView === 'processes' && 'University Procedure & Service Directory'}
-                {(currentView === 'sac' || currentView === 'clubs') && 'Student Activity Center (SAC) • 26 Clubs & Domains'}
                 {currentView === 'directory' && 'Official Information Directory & Deans'}
                 {currentView === 'knowledge' && 'Council Knowledge Centre & Regulations'}
               </span>
@@ -144,11 +192,7 @@ export default function App() {
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
                 else setCurrentView('processes');
               }}
-              onDiscoverSAC={() => {
-                const el = document.getElementById('sac');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-                else setCurrentView('sac');
-              }}
+              onDiscoverSAC={() => window.location.assign('https://sac.kluniversity.in')}
               onSelectProcess={(proc) => setSelectedProcess(proc)}
             />
 
@@ -176,12 +220,6 @@ export default function App() {
             {/* 5. How SAMVAD 360 Works */}
             <HowItWorks />
 
-            {/* 6. Student Activity Center (SAC) & 26 Clubs Spotlight */}
-            <SACSection
-              onLaunchService={handleLaunchService}
-              onRsvpSuccess={handleRsvpSuccess}
-            />
-
             {/* 7. Official Information Directory & Deans */}
             <OfficialDirectory />
 
@@ -200,15 +238,6 @@ export default function App() {
               selectedProcess={selectedProcess}
               onCloseModal={() => setSelectedProcess(null)}
               onInitiateApplication={handleInitiateApplication}
-            />
-          </div>
-        )}
-
-        {(currentView === 'sac' || currentView === 'clubs') && (
-          <div>
-            <SACSection
-              onLaunchService={handleLaunchService}
-              onRsvpSuccess={handleRsvpSuccess}
             />
           </div>
         )}
